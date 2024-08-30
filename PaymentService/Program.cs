@@ -1,31 +1,25 @@
 ﻿using MassTransit;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PaymentService;
 using PaymentService.Consumer;
 using SharedModels.Models;
 var serviceProvider = new ServiceCollection()
-    .AddDbContext<AppDbContext>( opt => opt.UseInMemoryDatabase("TestDatabase"))
-    .BuildServiceProvider();
-using (var context = serviceProvider.GetService<AppDbContext>())
-{
-    if(context != null)
-    {
-        context.Cards.Add(new Card {CardNumber = "1234", FullName = "Furkan Yalçın", CVV = 123, Month= 12, Year = 25});
-        context.Cards.Add(new Card {CardNumber = "5678", FullName = "Emre Yalçın", CVV = 456, Month= 12, Year = 25});
-        context.Cards.Add(new Card {CardNumber = "9101", FullName = "Doğukan Yalçın", CVV = 789, Month= 12, Year = 25});
-    }
-}
+    .AddDbContext<AppDbContext>().BuildServiceProvider();
 
 var busControl = Bus.Factory.CreateUsingRabbitMq(cfg => {
     cfg.ReceiveEndpoint("payment-created-event", e => 
     {
         e.Consumer<PaymentConsumer>();
+        e.BindDeadLetterQueue("payment-created-event-dlq");
     });
     cfg.Host(new Uri("amqp://guest:guest@localhost:5672"), h => 
     {
         h.Username("guest");
         h.Password("guest");
+    });
+    cfg.ReceiveEndpoint("payment-created-event-error",e => 
+    {
+        // Hata alınan ödemelerin işleneceği consumer tanımlanır.
     });
 });
 await busControl.StartAsync(new CancellationToken());

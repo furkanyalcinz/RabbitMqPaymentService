@@ -20,5 +20,10 @@ namespace PaymentClient.Controllers
             await _paymentRequestService.CreateRequest(paymentRequest);
             return Ok();
         }
+        [HttpGet]
+        public async Task<IActionResult> GetPaymentStatus(string paymentRequestId)
+        {
+            return Ok(await _paymentRequestService.GetTransactionStatusResponseAsync(paymentRequestId));
+        }
     }
 }

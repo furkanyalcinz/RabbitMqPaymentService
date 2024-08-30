@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentService", "PaymentSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedModels", "SharedModels\SharedModels.csproj", "{F32BDF9D-5263-4515-8A0D-7BC1F2C114E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{181B55B0-2DBF-4D94-924F-3D4B68503EC9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{F32BDF9D-5263-4515-8A0D-7BC1F2C114E3}.Release|x64.Build.0 = Release|Any CPU
 		{F32BDF9D-5263-4515-8A0D-7BC1F2C114E3}.Release|x86.ActiveCfg = Release|Any CPU
 		{F32BDF9D-5263-4515-8A0D-7BC1F2C114E3}.Release|x86.Build.0 = Release|Any CPU
+		{181B55B0-2DBF-4D94-924F-3D4B68503EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{181B55B0-2DBF-4D94-924F-3D4B68503EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{181B55B0-2DBF-4D94-924F-3D4B68503EC9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{181B55B0-2DBF-4D94-924F-3D4B68503EC9}.Debug|x64.Build.0 = Debug|Any CPU
+		{181B55B0-2DBF-4D94-924F-3D4B68503EC9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{181B55B0-2DBF-4D94-924F-3D4B68503EC9}.Debug|x86.Build.0 = Debug|Any CPU
+		{181B55B0-2DBF-4D94-924F-3D4B68503EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{181B55B0-2DBF-4D94-924F-3D4B68503EC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{181B55B0-2DBF-4D94-924F-3D4B68503EC9}.Release|x64.ActiveCfg = Release|Any CPU
+		{181B55B0-2DBF-4D94-924F-3D4B68503EC9}.Release|x64.Build.0 = Release|Any CPU
+		{181B55B0-2DBF-4D94-924F-3D4B68503EC9}.Release|x86.ActiveCfg = Release|Any CPU
+		{181B55B0-2DBF-4D94-924F-3D4B68503EC9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
